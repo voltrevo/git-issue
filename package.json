@@ -9,7 +9,9 @@
   "author": "Andrew Morris",
   "license": "MIT",
   "dependencies": {
+    "fs-promise": "^0.5.0",
     "minimist": "^1.2.0",
+    "open": "0.0.5",
     "titlecase": "^1.1.2"
   },
   "devDependencies": {
