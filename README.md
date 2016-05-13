@@ -8,7 +8,7 @@ These commands
 ```sh
 npm install -g git-issue
 
-(echo "# Do Stuff\n- [ ] Do it\n") >task.md
+(echo "# Do Stuff" && echo "- [ ] Do it") >task.md
 
 git-issue -r voltrevo/git-issue ./task.md
 ```
