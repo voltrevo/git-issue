@@ -87,7 +87,9 @@ const resolveTemplateName = (templateName) => {
     })
   ;
 
-  const lookupPaths = ['.', path.join(process.env.HOME, '.git-issue', 'templates')];
+  const lookupPaths = ['.', path.join(process.env.HOME, '.git-issue', 'templates')]
+    .map(dir => path.join(dir, pathObj.dir))
+  ;
 
   const lookupLoop = (i) => {
     if (i >= lookupPaths.length) {
