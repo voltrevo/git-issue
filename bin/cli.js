@@ -7,7 +7,6 @@
 const path = require('path');
 
 const afs = require('abstract-fs');
-const fs = require('fs-promise');
 const once = require('lodash/once');
 
 const args = require('minimist')(process.argv.slice(2));
@@ -20,7 +19,8 @@ if (args._.length === 0) {
 }
 
 const getConfig = once(() => (
-  fs.readFile(path.join(process.env.HOME, '.git-issue', 'config.json'))
+  afs.System.File(path.join(process.env.HOME, '.git-issue', 'config.json'))
+    .read()
     .then(content => JSON.parse(content.toString()))
     .catch(err => {
       if (err.code === 'ENOENT') {

@@ -1,13 +1,13 @@
 'use strict';
 
-const fs = require('fs-promise');
+const afs = require('abstract-fs');
 
 const open = require('open');
 
 const issueToUrl = require('./issueToUrl.js');
 
 module.exports = (repo, fname) => (
-  fs.readFile(fname).then(issueStr => {
+  afs.System.File(fname).read().then(issueStr => {
     const url = issueToUrl(repo, fname, issueStr.toString());
 
     return new Promise((resolve, reject) => {
