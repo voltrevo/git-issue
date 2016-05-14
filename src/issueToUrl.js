@@ -4,8 +4,10 @@ const path = require('path');
 
 const titleCase = require('titlecase');
 
+const escapeExtra = (str) => escape(str).replace(/\+/g, '%2b');
+
 const makeUrl = (repo, title, body) => (
-  `${repo}/issues/new?title=${escape(title)}&body=${escape(body)}`
+  `${repo}/issues/new?title=${escapeExtra(title)}&body=${escapeExtra(body)}`
 );
 
 const fnameToTitleCase = (fname) => {

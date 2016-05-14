@@ -45,3 +45,22 @@ test('uses heading for title when available', t => {
     )
   );
 });
+
+test('escapes +', t => {
+  t.plan(1);
+
+  t.equal(
+    issueToUrl(
+      'https://github.com/joe/blog',
+      'foo.md',
+      [
+        '- [ ] Do 3+ things',
+      ].join('\n')
+    ),
+    (
+      'https://github.com/joe/blog/issues/new?' +
+        'title=Foo&' +
+        'body=-%20%5B%20%5D%20Do%203%2b%20things'
+    )
+  );
+});
