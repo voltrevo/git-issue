@@ -1,6 +1,6 @@
 {
   "name": "git-issue",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Cli for creating github issues from templates",
   "main": "src/index.js",
   "scripts": {
